@@ -51,7 +51,7 @@ describe("User Guesses a Letter", function(){
   });
 
   it("#guessIncorrectUpdate",function(){
-    // game.decrementGuessCount();
+    game.decrementGuessCount();
     expect(game.guessCount ).toBe(6);
   });
 
@@ -60,19 +60,7 @@ describe("User Guesses a Letter", function(){
     expect(game.updateWordGuess("b") ).toBe("b*****");
   });
 
-});
-
-
-
-describe("User completes a Game", function(){
-  var game = new Game("banana")
-
-  describe("User Wins a Game", function(){
-    it("#determineOutcome", function(){
-      game.wordGuess = "banana"
-      expect(game.determineOutcome() ).toBe("Win")
-    });
-  });
   
+
 
 });

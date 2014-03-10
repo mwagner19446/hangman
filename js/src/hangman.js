@@ -60,14 +60,7 @@ Game.prototype.guessCorrect = function(letter){
     this.decrementGuessCount()  
   };
 
-  return correct
-
-};
-
-Game.prototype.determineOutcome = function(){
-  if(this.word === this.wordGuess){
-    return "Win"
-  }
+  
 };
 
 
