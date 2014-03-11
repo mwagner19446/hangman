@@ -1,10 +1,13 @@
 function categoryToWord(category){
   var dictionary = {
-    "sports": ["basketball"],
-    "food": ["eggs", "nachos"]
+    "sports": ["basketball", "baseball", "hockey", "football", "boxing"],
+    "foods": ["eggs", "nachos", "pizza", "chocolate", "flax"],
+    "games": ["sudoku", "monopoly", "sorry", "chess", "checkers"],
+    "music": ["beatles", "tupac", "bonobo", "mozart", "kraftwerk"],
+    "movies": ["matrix", "titanic", "inception", "fargo", "aladdin"]
   }
   var num = Math.floor(Math.random() * dictionary[category].length);
-  return dictionary[category][num]
+  userGame = new Game(dictionary[category][num])
 };
 
 starPower = function(word) {
@@ -34,7 +37,7 @@ Game.prototype.updateWordGuess= function(letter){
       splitWordGuess[i] = letter
       }
     }  
-  return splitWordGuess.join("")
+  this.wordGuess =splitWordGuess.join("")
 
 };
 
@@ -44,10 +47,12 @@ Game.prototype.decrementGuessCount = function(){
 
 
 Game.prototype.guessCorrect = function(letter){
+
+  var letter = letter
   var splitWord = this.word.split("")
   var splitWordGuess = this.wordGuess.split("")
   var correct = false
-  
+
   for(var i = 0; i < splitWord.length; i++) {
     if(splitWord[i] === letter) {
       correct = true
@@ -55,9 +60,9 @@ Game.prototype.guessCorrect = function(letter){
   };
 
   if(correct===true){
-    this.updateWordGuess()  
+    this.updateWordGuess(letter);  
   }else{
-    this.decrementGuessCount()  
+    this.decrementGuessCount() ; 
   };
 
   
