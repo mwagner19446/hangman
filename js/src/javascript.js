@@ -7,12 +7,25 @@ var giveUp = document.querySelector(".give-up");
 var inputText = document.querySelector("#letter");
 var guessedLetter = document.querySelector(".guessed-letters")
 
-// newGame.addEventListener("click", location.reload())
+
+var gameBegin = window.prompt("Would you like to play hangman? Y / N")
+game
+if(gameBegin.toLowerCase() === "y"){
+  var userInput = window.prompt("Choose a category: foods / sports / games / music / movies")
+  categoryToWord(userInput)
+} else{
+  window.location="http://www.youtube.com/watch?v=oY9qVhC3VPo";
+};
+
+game.addEventListener("click", function() { location.reload() });
+giveUp.addEventListener("click", window.location="http://www.youtube.com/watch?v=oY9qVhC3VPo")
+
+// game.addEventListener("click", );
+gameWord.innerText = userGame.wordGuess;
 
 //Step 1:  User Selects a Category
-var userInput = prompt("Choose a category: foods / sports / games / music / movies")
-game.addEventListener("click", categoryToWord(userInput));
-gameWord.innerText = userGame.wordGuess;
+
+
 
 //Step 2:  Update Accept Guesses
   //Step 1A:  Store Value 
@@ -30,8 +43,14 @@ inputText.addEventListener("keyup",function(){
     
     if(outcome === "Win"){
       gameWord.innerText = "You Win!"
+      setTimeout(function(){
+        newGame.addEventListener("mousedown", location.reload());
+    },1000)
     }else if (outcome === "Lose"){
       gameWord.innerText = "You Lose!"
+      setTimeout(function(){
+        newGame.addEventListener("mousedown", location.reload());
+    },1000)
     };
 
   inputText.value = ""
@@ -39,8 +58,8 @@ inputText.addEventListener("keyup",function(){
 
 //In Progress
 //Step 3:  User Starts New Game (NOTE:  Off the New Game and Quit Buttons)
-newGame.addEventListener("click",function(){
-  var userInput = prompt("Choose a category: foods / sports / games / music / movies")
-});
+// newGame.addEventListener("click",function(){
+//   var userInput = prompt("Choose a category: foods / sports / games / music / movies")
+// });
 
 
