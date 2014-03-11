@@ -58,7 +58,7 @@ Game.prototype.guessCorrect = function(letter){
   };
 
   if(correct===true){
-    this.updateWordGuess()  
+    this.updateWordGuess(letter)  
   }else{
     this.guessIncorrect(letter);
     this.decrementGuessCount()  
@@ -71,6 +71,7 @@ Game.prototype.guessIncorrect = function(letter){
   this.wrongLetterGuess.push(letter)
 }
 
+
 function guessAllowed(letter){
   var alph = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t", "u","v","w","x","y","z"];
 
@@ -80,6 +81,19 @@ function guessAllowed(letter){
     return true
   }else{
     return false
+  };
+};
+
+
+
+
+Game.prototype.determineGame = function(){
+  if(this.word === this.wordGuess){
+    return "Win"
+  }else if(this.guessCount === 0){
+    return "Lose"
+  }else{ 
+    return "Keep Playing"
   };
 };
 

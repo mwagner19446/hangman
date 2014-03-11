@@ -64,3 +64,15 @@ describe("User Guesses a Letter", function(){
 
 
 });
+
+
+describe("User wins a Game", function(){
+  var game = new Game("banana")
+
+  it("#determineGame",function(){
+
+  });
+
+
+});
+
