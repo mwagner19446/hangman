@@ -17,6 +17,8 @@ if(gameBegin.toLowerCase() === "y"){
   window.location="http://www.youtube.com/watch?v=oY9qVhC3VPo";
 };
 
+game.addEventListener("click", function() { location.reload() });
+giveUp.addEventListener("click", window.location="http://www.youtube.com/watch?v=oY9qVhC3VPo")
 
 // game.addEventListener("click", );
 gameWord.innerText = userGame.wordGuess;
