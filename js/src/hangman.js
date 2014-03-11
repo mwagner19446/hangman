@@ -42,17 +42,15 @@ Game.prototype.updateWordGuess= function(letter){
 };
 
 Game.prototype.decrementGuessCount = function(){
-  this.guessCount -=1
+  this.guessCount -=1;
 }
 
 
 Game.prototype.guessCorrect = function(letter){
-
-  var letter = letter
   var splitWord = this.word.split("")
   var splitWordGuess = this.wordGuess.split("")
   var correct = false
-
+  
   for(var i = 0; i < splitWord.length; i++) {
     if(splitWord[i] === letter) {
       correct = true
@@ -60,14 +58,18 @@ Game.prototype.guessCorrect = function(letter){
   };
 
   if(correct===true){
-    this.updateWordGuess(letter);  
+    this.updateWordGuess()  
   }else{
-    this.decrementGuessCount() ; 
+    this.guessIncorrect(letter);
+    this.decrementGuessCount()  
   };
 
   
 };
 
+Game.prototype.guessIncorrect = function(letter){
+  this.wrongLetterGuess.push(letter)
+}
 
 function guessAllowed(letter){
   var alph = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t", "u","v","w","x","y","z"];
